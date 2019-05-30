@@ -10,8 +10,7 @@ def homePage(requests):
 def aboutPage(requests):
     return render(requests, 'about.html', {})
 
-def aboutPageDemo(requests):
-    return render(requests, 'about.html', {})
+
 
 
 
