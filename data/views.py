@@ -10,6 +10,10 @@ def homePage(requests):
 def aboutPage(requests):
     return render(requests, 'about.html', {})
 
+# Create your views here.
+def aboutPage1(requests):
+    return render(requests, 'about.html', {})
+
 
 
 
