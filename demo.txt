@@ -1,2 +1,1 @@
-<h1>Hello from Testing django save!</h1>
-<h1>Hello from Testing django komal update!</h1>
+Hello from Testing django save!
