@@ -27,12 +27,6 @@
   <!-- Main Stylesheet File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: EstateAgency
-    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -41,11 +35,12 @@
   <!--/ Form Search Star /-->
   <div class="box-collapse">
     <div class="title-box-d">
-      <h3 class="title-d">Search Property</h3>
+      <h3 class="title-d">Search Offer</h3>
     </div>
     <span class="close-box-collapse right-boxed ion-ios-close"></span>
     <div class="box-collapse-wrap form">
-      <form class="form-a" >
+      <form class="form-a" action="{% url 'search_page' %}" method="POST">
+        {% csrf_token %}
         <div class="row">
           <div class="col-md-12 mb-2">
             <div class="form-group">
@@ -56,11 +51,10 @@
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Type</label>
-              <select class="form-control form-control-lg form-control-a" id="Type">
+              <select name="type" class="form-control form-control-lg form-control-a" id="Type">
                 <option>All Type</option>
                 <option>For Rent</option>
                 <option>For Sale</option>
-                <option>Open House</option>
               </select>
             </div>
           </div>
