@@ -2,19 +2,17 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
-from .forms import ProductForm
+from .models import Post
+
+# from .forms import ProductForm
 
 # Create your views here.
-def homePage(requests):
-    return render(requests, 'index.html', {})
-
-# Create your views here.
-def aboutPage(requests):
-    return render(requests, 'about.html', {})
+def homePage(requests, slug):
+    posts = Post.objects.all()
+    return render(requests, slug + '.html', {'slug': slug, 'posts': posts})
 
 def searchPage(requests):
-    productform = ProductForm()
-
+    # productform = ProductForm()
     if requests.method == 'POST':
         data = {
             'keyword': requests.POST['keyword'],
@@ -25,9 +23,7 @@ def searchPage(requests):
             'bathroom': requests.POST['bathroom'],
             'price': requests.POST['price'],
         }
-
-
-        return render(requests, 'property-grid.html', {'form': productform, 'data':data})       
+        return render(requests, 'property-grid.html', {'data':data})       
     else:
         return render(requests, 'about.html', {})
 

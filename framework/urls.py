@@ -16,15 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from data.views import homePage,aboutPage,searchPage
+from data.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^home/$', homePage, name="home_page"),
-    url(r'^about/$', aboutPage, name="about_page"),
     url(r'^search/$', searchPage, name="search_page"),
+    url(r'^(?P<slug>[\w-]+)/$', homePage, name="home_page"),
+    
    
 # ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
