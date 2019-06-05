@@ -24,17 +24,13 @@
           {% for item in posts %}
             <div class="carousel-item-b">
               <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <!-- {% for img in item.banner_set.all %}
-                      <img src="/{{img.bannerfile}}" alt="" class="img-a img-fluid">
-                  {% endfor %} -->
+                <div class="img-box-a">                 
+                  {% if item.banner_set.first.bannerfile %}
+                  <img src="/media/{{item.banner_set.first.bannerfile}}" alt="" class="img-a img-fluid">
+                  {% else %}
 
-                  <!-- {% if item.banner_set.first.bannerfile %}
-                  <img src="/{{item.banner_set.first.bannerfile}}" alt="" class="img-a img-fluid">
-                  {% else %} -->
                   <img src="{% static 'img/property-6.jpg' %}" alt="" class="img-a img-fluid">
-                  <!-- {% endif %} -->
-                  <!-- <img src="{% static 'img/property-6.jpg' %}" alt="" class="img-a img-fluid"> -->
+                  {% endif %}
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">

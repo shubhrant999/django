@@ -1,9 +1,17 @@
-# from django import forms
+from django import forms
+from .models import Post
+from django.contrib import admin
 
-# from .models import Post
+class PostForm(forms.ModelForm):
+    title = forms.CharField(max_length=128)
+    body = forms.CharField(max_length=245, label="Item Description.")
 
-# class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'body', )
 
-#     class Meta:
-#         model = Product
-#         fields = ('name', 'category_id', 'description')
+        
+# class BannerAdminForm(forms.ModelForm):
+#     def __init__(self, *args, **kwargs):
+#         super(BannerAdminForm, self).__init__(*args, **kwargs)
+#         self.fields['bannerfile'].widget = admin.widgets.AdminFileWidget()

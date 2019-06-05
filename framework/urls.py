@@ -16,13 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from data.views import *
+from data.views import submitForm, searchPage, homePage, singleBlogPage
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^search/$', searchPage, name="search_page"),
+    url(r'^submitForm$', submitForm, name="submit_form"),
+    url(r'^blog-single/(?P<slug>[\w-]+)/$', singleBlogPage, name="blog_single_page"),
     url(r'^(?P<slug>[\w-]+)/$', homePage, name="home_page"),
     
    
